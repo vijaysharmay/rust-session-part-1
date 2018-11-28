@@ -2,12 +2,11 @@
 /// Lession 1 - Setup & Primitives
 /// 
 
+#[path = "./common.rs"]
+mod common;
+
 pub fn exec(){
-    println!("");
-    println!("{}", format!("{:*^1$}", "", 50));
-    println!("{}", format!("{:*^1$}", " Executing Lesson 1 ", 50));
-    println!("{}", format!("{:*^1$}", "", 50));
-    println!("");
+    common::display_lesson_name(1);
     lesson();
 }
 
