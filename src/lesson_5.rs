@@ -12,6 +12,7 @@ pub fn exec(){
 
 fn lesson(){
     
+    // Interfaces
     trait Shape{
         fn area(&self) -> f32;
         fn display(&self){
@@ -30,6 +31,24 @@ fn lesson(){
 
     struct Circle{
         radius: i32
+    }
+
+    impl Rectangle{
+        fn custom(&self){
+            println!("This is a custom function for Rectangles");
+        }
+    }
+
+    impl Square{
+        fn custom(&self){
+            println!("This is a custom function for Squares");
+        }
+    }
+
+    impl Circle{
+        fn custom(&self){
+            println!("This is a custom function for Circle");
+        }
     }
 
     impl Shape for Rectangle{
@@ -57,5 +76,10 @@ fn lesson(){
     a.display();
     b.display();
     c.display();
+
+    a.custom();
+    b.custom();
+    c.custom();
+
 }
 
