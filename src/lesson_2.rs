@@ -17,15 +17,19 @@ fn lesson(){
     let mut a4 = String::from(a3);
     a4.push_str(" technologies");
     println!("a3 -> {} & a4 -> {}", a3, a4);
+    
+    for s in a4.split(" "){
+        println!("{}", s);
+    }
 
     // Tuples
     let a5: (i32, u64) = (1, 2);
     let a6: (f32, i32, (i32, i32)) = (1.0, 2, (4, 5));
-    let (_, _, (_, a7)) = a6;
+    let (_, _, (_, a7)) = a6; // unpacking tuples
     println!("{first:?} is a tuple and so is {second:?}", first=a6, second=a5);
     println!("Unpacked a7 = {}", a7);
 
-    // Arrays
+    // Arrays are fixed length
     let arr = [21, 32, 3, 74, 64, 9];
     println!("First Element of array is {}", arr[0]);
     println!("Length of array is {}", arr.len());

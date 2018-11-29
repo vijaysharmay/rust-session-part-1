@@ -27,6 +27,9 @@ fn lesson(){
 
     let x = |i| i * 10;
     fn apply<F>(f: F, x: i32) -> i32 where F: Fn(i32) -> i32 { f(x) }
+    
+    let k = apply(x, 20);
+    println!("k = {}", k);
 
     struct Point<F: Fn(i32, i32) -> f32>{
         x: i32,
@@ -48,8 +51,6 @@ fn lesson(){
 
     println!("Point created with x = {}, y = {} and area = {}", point.x, point.y, area);
 
-    let k = apply(x, 20);
-    println!("k = {}", k);
 
     let mut counter = 0;
 

@@ -14,7 +14,7 @@ fn lesson(){
     
     // a owns 2 and 2 is stored on the stack
     let a = 2; 
-    let a = a + 3; // Shadowing
+    let a = a + 3; // Shadowing works on stack objects
     let b = a; // inexpensive to copy so stores a copy
 
     println!("a = {} & b = {}", a, b);

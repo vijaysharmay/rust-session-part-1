@@ -13,7 +13,8 @@ pub fn exec(){
 fn lesson(){
     
     // Integers (i8 to i64, u8 to u64, isize, usize)
-    let a1: i32 = 1;
+    let mut a1: i32 = 1;
+    a1 = 3;
     let a2: usize = 2;
     println!("a1 = {} & a2 = {}", a1, a2);
 
@@ -32,8 +33,8 @@ fn lesson(){
     println!("c1 is {} and c2 is {}", c1, c2);
 
     // Constants
-    let tech: String = String::from("Rust");
-    println!("Current technology used is {}", tech);
+    const TECH: i32 = 2;
+    println!("Current technology used is {}", TECH);
 
 }
 
