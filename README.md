@@ -12,7 +12,6 @@ Below is the mapping(in order) for the weird module names and the topics which t
 | 4  | lesson_4.rs   | Ownership & Borrowing                         |
 | 5  | lesson_5.rs   | Structs, Traits & Generics                    |
 | 6  | lesson_6.rs   | Enums, Option & Result                        |
-| 7  | lesson_7.rs   | Modules & Lifetimes                           |
+| 7  | lesson_7.rs   | Modules                                       |
 | 8  | lesson_8.rs   | Closures & Iterators                          |
-| 9  | lesson_9.rs   | Smart Pointers                                |
-| 10 | lesson_10.rs  | Collections                                   |
+| 9  | lesson_9.rs   | Collections                                   |

@@ -10,7 +10,6 @@ mod lesson_6;
 mod lesson_7;
 mod lesson_8;
 mod lesson_9;
-mod lesson_10;
 
 fn main(){
     
@@ -25,7 +24,6 @@ fn main(){
     method_mapping.insert(7, lesson_7::exec);
     method_mapping.insert(8, lesson_8::exec);
     method_mapping.insert(9, lesson_9::exec);
-    method_mapping.insert(10, lesson_10::exec);
 
     let args: Vec<String> = args().collect();
     let lesson_number = &args[1].trim().parse();
