@@ -7,7 +7,6 @@ mod common;
 
 use std::ops::Mul;
 use std::fmt;
-use std::convert::Into;
 
 pub fn exec(){
     common::display_lesson_name(5);
@@ -20,7 +19,7 @@ fn lesson(){
     
     // Interfaces
     trait Shape<T> where T: fmt::Display{
-        fn area(&self) -> f32;
+        fn area(&self) -> T;
         fn display(&self){
             println!("Area = {:.2}", self.area());
         }
@@ -39,7 +38,7 @@ fn lesson(){
     };
 
     // Creates a name space
-    impl<T> Rectangle<T> where T: Mul<Output = f32>{
+    impl<T> Rectangle<T> where T: Mul<Output = T>{
         fn new(length: T, width: T) -> Rectangle<T>{
             Rectangle{
                 length,
@@ -51,33 +50,33 @@ fn lesson(){
         }
     };
 
-    impl<T> Square<T> where T: Mul<Output = f32>{
+    impl<T> Square<T> where T: Mul<Output = T>{
         fn custom(&self){
             println!("This is a custom function for Squares");
         }
     };
 
-    impl<T> Circle<T> where T: Mul<Output = f32>{
+    impl<T> Circle<T> where T: Mul<Output = T>{
         fn custom(&self){
             println!("This is a custom function for Circle");
         }
     };
 
-    impl<T: Mul> Shape<T> for Rectangle<T> where T: Mul<Output = f32> + fmt::Display + Clone{
-        fn area(&self) -> f32{
+    impl<T: Mul> Shape<T> for Rectangle<T> where T: Mul<Output = T> + fmt::Display + Copy{
+        fn area(&self) -> T{
             self.length * self.width
         }
     };
 
-    impl<T: Mul<Output = f32> + fmt::Display + Clone> Shape<T> for Square<T>{
-        fn area(&self) -> f32{
+    impl<T: Mul<Output = T> + fmt::Display + Copy> Shape<T> for Square<T>{
+        fn area(&self) -> T{
             self.0 * self.0
         }
     };
     
-    impl<T: Mul<Output = f32> + fmt::Display + Clone> Shape<T> for Circle<T>{
-        fn area(&self) -> f32{
-            3.14 * self.radius.clone().into() * self.radius.clone().into()
+    impl<T: Mul<Output = T> + fmt::Display + Copy> Shape<T> for Circle<T>{
+        fn area(&self) -> T{
+            self.radius * self.radius
         }
     };
 
