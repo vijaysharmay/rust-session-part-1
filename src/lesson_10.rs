@@ -104,18 +104,13 @@ fn lesson(){
 
     let mut bh: BinaryHeap<i32> = BinaryHeap::new();
 
-    let start = PreciseTime::now();
-    for i in 1..100000000{
+    for i in 1..10000{
         bh.push(i)
     }
-    let end = PreciseTime::now();
-    println!("{} seconds for adding 100 million values", start.to(end));
 
-    let start = PreciseTime::now();
     match bh.peek(){
         Some(n) => {
-            let end = PreciseTime::now();
-            println!("Found value {} in {} seconds", n, start.to(end))
+            println!("Max Val = {}", n)
         },
         None => println!("Something went wrong")
     }
