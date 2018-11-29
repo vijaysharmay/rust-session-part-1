@@ -5,73 +5,88 @@
 #[path = "./common.rs"]
 mod common;
 
+use std::ops::Mul;
+use std::fmt;
+use std::convert::Into;
+
 pub fn exec(){
     common::display_lesson_name(5);
     lesson();
 }
 
 fn lesson(){
+    #[allow(dead_code)]
+    struct CommonShape; // unit-like struct
     
     // Interfaces
-    trait Shape{
+    trait Shape<T> where T: fmt::Display{
         fn area(&self) -> f32;
         fn display(&self){
             println!("Area = {:.2}", self.area());
         }
     }
 
-    struct Rectangle{
-        length: i32,
-        width: i32
-    }
+    #[derive(Debug)] // derives the Debug Trait
+    struct Rectangle<T: Mul>{
+        length: T,
+        width: T
+    };
 
-    struct Square{
-        length: i32
-    }
+    struct Square<T: Mul>(T); // Tuple Structs
 
-    struct Circle{
-        radius: i32
-    }
+    struct Circle<T: Mul>{
+        radius: T
+    };
 
-    impl Rectangle{
+    // Creates a name space
+    impl<T> Rectangle<T> where T: Mul<Output = f32>{
+        fn new(length: T, width: T) -> Rectangle<T>{
+            Rectangle{
+                length,
+                width
+            }
+        }
         fn custom(&self){
             println!("This is a custom function for Rectangles");
         }
-    }
+    };
 
-    impl Square{
+    impl<T> Square<T> where T: Mul<Output = f32>{
         fn custom(&self){
             println!("This is a custom function for Squares");
         }
-    }
+    };
 
-    impl Circle{
+    impl<T> Circle<T> where T: Mul<Output = f32>{
         fn custom(&self){
             println!("This is a custom function for Circle");
         }
-    }
+    };
 
-    impl Shape for Rectangle{
+    impl<T: Mul> Shape<T> for Rectangle<T> where T: Mul<Output = f32> + fmt::Display + Clone{
         fn area(&self) -> f32{
-            (self.length * self.width) as f32
+            self.length * self.width
         }
-    }
+    };
 
-    impl Shape for Square{
+    impl<T: Mul<Output = f32> + fmt::Display + Clone> Shape<T> for Square<T>{
         fn area(&self) -> f32{
-            (self.length.pow(2)) as f32
+            self.0 * self.0
         }
-    }
+    };
     
-    impl Shape for Circle{
+    impl<T: Mul<Output = f32> + fmt::Display + Clone> Shape<T> for Circle<T>{
         fn area(&self) -> f32{
-            3.14 * (self.radius.pow(2) as f32)
+            3.14 * self.radius.clone().into() * self.radius.clone().into()
         }
-    }
+    };
 
-    let a = Rectangle{length: 20, width: 30};
-    let b = Square{length: 20};
+    let a = Rectangle::new(20, 30);
+    let b = Square(20);
     let c = Circle{radius: 20};
+
+    println!("{:?}", a);
+    println!("{:#?}", a);
 
     a.display();
     b.display();
