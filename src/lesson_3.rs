@@ -15,7 +15,7 @@ pub fn exec(){
 fn lesson(){
     
     // get value from user
-    let mut a = common::get_value_from_user(String::from("Please enter a value"));
+    let mut a = common::get_numeric_value_from_user(String::from("Please enter a value"));
     println!("Value of a is {}", a);
 
     // If condition
@@ -55,7 +55,7 @@ fn lesson(){
     println!("Value of b is {}", b);
 
     // match statement
-    let c = common::get_value_from_user(String::from("Please enter another value"));
+    let c = common::get_numeric_value_from_user(String::from("Please enter another value"));
 
     match c.cmp(&a){
         Ordering::Greater => println!("Second value from user is greater than the first value"),

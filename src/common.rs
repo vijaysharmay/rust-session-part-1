@@ -11,7 +11,7 @@ pub fn display_lesson_name(lesson_number: i32){
     println!("");
 }
 
-pub fn get_value_from_user(message: String) -> i32{
+pub fn get_numeric_value_from_user(message: String) -> i32{
 
     println!("{}", format!("{}", message));
     
@@ -25,4 +25,20 @@ pub fn get_value_from_user(message: String) -> i32{
     };
 
     parsed_val as i32
+}
+
+pub fn get_char_value_from_user(message: String) -> char{
+
+    println!("{}", format!("{}", message));
+    
+    let mut val = String::new();
+
+    io::stdin().read_line(&mut val).expect("Failed to read line");
+
+    let parsed_val = match val.trim().parse::<char>(){
+        Ok(num) => num,
+        Err(_) => panic!("Something went wrong"),
+    };
+
+    parsed_val as char
 }
