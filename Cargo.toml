@@ -5,3 +5,4 @@ authors = ["vijayy"]
 edition = "2018"
 
 [dependencies]
+time = "*"
