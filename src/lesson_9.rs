@@ -18,7 +18,7 @@ use std::collections::HashSet;
 use std::collections::BinaryHeap;
 
 pub fn exec(){
-    common::display_lesson_name(10);
+    common::display_lesson_name(9);
     lesson();
 }
 
