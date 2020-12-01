@@ -1,6 +1,6 @@
 ### Rust Techtonic Session
 
-This repo contains reference code for the techtonic session "Introduction to Rust" given in Imaginea
+This repo contains reference code for the techtonic session "Introduction to Rust" given in Pramati
 
 Below is the mapping(in order) for the weird module names and the topics which they cover:
 
